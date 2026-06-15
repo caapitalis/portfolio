@@ -15,7 +15,7 @@ export default function About({ strings }) {
                 marginBottom: 20,
               }}
             >
-              {strings?.about?.section ?? "01 — À propos"}
+              {strings?.about?.section ?? "01 — About"}
             </p>
             <h2
               style={{
@@ -48,7 +48,7 @@ export default function About({ strings }) {
                   opacity: 0.8,
                 }}
               >
-                {strings?.about?.quote ?? "La tech la plus puissante est celle qui résout de vrais problèmes — avec élégance."}
+                {strings?.about?.quote ?? "The most powerful tech is the one that solves real problems — with elegance."}
               </p>
             </div>
             <p
@@ -62,7 +62,7 @@ export default function About({ strings }) {
                 marginBottom: 20,
               }}
             >
-              {strings?.about?.description1 ?? "Je m'appelle Ali Ouadi, étudiant en BTS SIO première année. Mon ambition : devenir un développeur d'excellence, spécialisé dans les applications métier à haute valeur ajoutée."}
+              {strings?.about?.description1 ?? "I'm Ali Ouadi, a BTSS SIO 2025-2027 student at Ingetis CFA Paris 5th. My ambition is to become an outstanding developer specialized in high-value business applications."}
             </p>
             <p
               className="sr d3"
@@ -75,7 +75,7 @@ export default function About({ strings }) {
                 marginBottom: 36,
               }}
             >
-              {strings?.about?.description2 ?? "Autodidacte dans l'âme, je construis mes compétences autant par la pratique que par la veille active. Ce portfolio est l'archive vivante de mon parcours."}
+              {strings?.about?.description2 ?? "Self-taught at heart, I build my skills through practice and active learning. This portfolio is the living archive of my journey."}
             </p>
             <div className="sr d4" style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
               {(strings?.about?.tags ?? []).map((t) => (

@@ -1,37 +1,34 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { EXPERIENCE_PAGES } from "../../data/experienceData.js";
-import { translateStructuredData } from "../../utils/translationService.js";
 
 export default function ExperiencePage({ lang, strings }) {
   const { slug } = useParams();
   const navigate = useNavigate();
   const page = useMemo(() => EXPERIENCE_PAGES.find((item) => item.slug === slug), [slug]);
-  const [translated, setTranslated] = useState(null);
   const experienceStrings = strings?.experience ?? {};
 
-  useEffect(() => {
-    if (!page) {
-      navigate("/", { replace: true });
-      return;
+  const translated = useMemo(() => {
+    if (!page) return null;
+
+    if (lang === "fr") {
+      return page;
     }
 
-    async function translatePage() {
-      if (lang === "fr") {
-        setTranslated(page);
-        return;
-      }
-
-      const translatedPage = await translateStructuredData(page, "fr", "en");
-      setTranslated(translatedPage);
-    }
-
-    translatePage();
-  }, [lang, page, navigate]);
+    return {
+      ...page,
+      title: page.titleEn ?? page.title,
+      hero: page.heroEn ?? page.hero,
+      preview: page.previewEn ?? page.preview,
+      actions: page.actionsEn ?? page.actions,
+      learnings: page.learningsEn ?? page.learnings,
+      evolution: page.evolutionEn ?? page.evolution,
+    };
+  }, [lang, page]);
 
   if (!page || !translated) {
     return (
-      <main style={{ minHeight: "100vh", padding: "160px 32px", color: "var(--text)", fontFamily: "var(--sans)" }}>
+      <main className="experience-page-shell">
         <p>{experienceStrings?.loading ?? (lang === "fr" ? "Chargement de la page..." : "Loading page...")}</p>
       </main>
     );
@@ -40,9 +37,9 @@ export default function ExperiencePage({ lang, strings }) {
   const displayTitle = lang === "en" ? translated.titleEn ?? translated.title : translated.title;
 
   return (
-    <main style={{ minHeight: "100vh", padding: "120px 48px", position: "relative", zIndex: 1 }}>
-      <div style={{ maxWidth: 1120, margin: "0 auto", display: "grid", gap: 40 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 24, alignItems: "flex-end" }}>
+    <main className="experience-page-shell">
+      <div className="experience-page-container">
+        <div className="experience-header">
           <div>
             <p style={{ fontFamily: "var(--sans)", textTransform: "uppercase", letterSpacing: ".24em", fontSize: ".7rem", color: "var(--acc)", marginBottom: 16 }}>
               {experienceStrings?.sectionTitle ?? (lang === "fr" ? "Expérience détaillée" : "Detailed experience")}
@@ -68,9 +65,9 @@ export default function ExperiencePage({ lang, strings }) {
               {translated.period}
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, alignItems: "stretch" }}>
-            <div className="glass" style={{ padding: 24 }}>
-              <h3 style={{ fontFamily: "var(--serif)", fontSize: "1.1rem", marginBottom: 14 }}>{experienceStrings?.sections?.actions ?? "Actions clés"}</h3>
+          <div className="experience-grid">
+            <div className="glass experience-panel">
+              <h3 style={{ fontFamily: "var(--serif)", fontSize: "1.1rem", marginBottom: 14 }}>{experienceStrings?.sections?.actions ?? "Key actions"}</h3>
               <ul style={{ listStyleType: "disc", paddingLeft: 20, color: "var(--text)", lineHeight: 1.85, fontFamily: "var(--sans)", fontSize: ".92rem" }}>
                 {translated.actions.map((item) => (
                   <li key={item} style={{ marginBottom: 12 }}>{item}</li>
@@ -78,7 +75,7 @@ export default function ExperiencePage({ lang, strings }) {
               </ul>
             </div>
             <div className="glass" style={{ padding: 24 }}>
-              <h3 style={{ fontFamily: "var(--serif)", fontSize: "1.1rem", marginBottom: 14 }}>{experienceStrings?.sections?.learnings ?? "Ce que j'ai appris"}</h3>
+              <h3 style={{ fontFamily: "var(--serif)", fontSize: "1.1rem", marginBottom: 14 }}>{experienceStrings?.sections?.learnings ?? "What I learned"}</h3>
               <ul style={{ listStyleType: "disc", paddingLeft: 20, color: "var(--text)", lineHeight: 1.85, fontFamily: "var(--sans)", fontSize: ".92rem" }}>
                 {translated.learnings.map((item) => (
                   <li key={item} style={{ marginBottom: 12 }}>{item}</li>
@@ -89,7 +86,7 @@ export default function ExperiencePage({ lang, strings }) {
         </section>
 
         <section className="neo" style={{ padding: 32, borderRadius: 28 }}>
-          <h3 style={{ fontFamily: "var(--serif)", fontSize: "1.3rem", marginBottom: 18 }}>{experienceStrings?.sections?.evolution ?? "Évolution"}</h3>
+          <h3 style={{ fontFamily: "var(--serif)", fontSize: "1.3rem", marginBottom: 18 }}>{experienceStrings?.sections?.evolution ?? "Evolution"}</h3>
           <div style={{ display: "grid", gap: 14 }}>
             {translated.evolution.map((item) => (
               <p key={item} style={{ fontFamily: "var(--sans)", fontSize: ".95rem", lineHeight: 1.85, color: "var(--mut)" }}>
@@ -99,7 +96,7 @@ export default function ExperiencePage({ lang, strings }) {
           </div>
         </section>
 
-        <section className="neo" style={{ padding: 32, borderRadius: 28, display: "grid", gap: 24 }}>
+        <section className="neo experience-related">
           <h3 style={{ fontFamily: "var(--serif)", fontSize: "1.3rem" }}>{experienceStrings?.otherExperiences ?? (lang === "fr" ? "Autres expériences" : "Other experiences")}</h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 18 }}>
             {EXPERIENCE_PAGES.filter((item) => item.slug !== slug).map((item) => (

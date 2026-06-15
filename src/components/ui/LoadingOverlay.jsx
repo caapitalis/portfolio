@@ -3,7 +3,7 @@ export default function LoadingOverlay({ visible }) {
     <div className={`loading-overlay${visible ? " visible" : ""}`}>
       <div className="loading-shell">
         <div className="loading-spinner" />
-        <p>Chargement…</p>
+        <p>Un instant, la page se prépare...</p>
       </div>
     </div>
   );

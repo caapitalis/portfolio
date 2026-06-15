@@ -16,7 +16,7 @@ export default function Stack({ strings }) {
               marginBottom: 18,
             }}
           >
-            {strings?.stack?.section ?? "02 — Stack & Compétences"}
+            {strings?.stack?.section ?? "03 — Stack & Skills"}
           </p>
           <h2
             style={{
@@ -41,7 +41,7 @@ export default function Stack({ strings }) {
               maxWidth: 620,
             }}
           >
-            {strings?.stack?.description ?? "Une sélection de savoir-faire technique et produit, pensée pour des projets à impact et des challenges métiers."}
+            {strings?.stack?.description ?? "A curated selection of technical and product skills designed for impact-driven projects and business challenges."}
           </p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: 22 }}>

@@ -17,7 +17,7 @@ export default function Projects({ strings }) {
                 marginBottom: 18,
               }}
             >
-              {strings?.projects?.section ?? "03 — Projets"}
+              {strings?.projects?.section ?? "03 — Projects"}
             </p>
             <h2
               style={{
@@ -42,7 +42,7 @@ export default function Projects({ strings }) {
                 maxWidth: 560,
               }}
             >
-              {strings?.projects?.description ?? "Des cas pratiques, des prototypes et des solutions conçues pour des besoins métier concrets."}
+              {strings?.projects?.description ?? "Practical cases, prototypes and solutions designed for real business needs."}
             </p>
           </div>
           <p
@@ -57,7 +57,7 @@ export default function Projects({ strings }) {
               textAlign: "right",
             }}
           >
-            {strings?.projects?.subtitle ?? "Les projets seront publiés au fil de l'avancement du parcours."}
+            {strings?.projects?.subtitle ?? "Projects will be published as the journey progresses."}
           </p>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 22 }}>
@@ -71,7 +71,7 @@ export default function Projects({ strings }) {
                       0{i}
                     </span>
                     <span className="ta" style={{ fontSize: ".48rem", opacity: 0.8 }}>
-                      {strings?.projects?.comingSoon ?? "À venir"}
+                      {strings?.projects?.comingSoon ?? "Coming soon"}
                     </span>
                   </div>
                   <div style={{ height: 1, background: "rgba(28,25,20,.08)", marginBottom: 28 }} />
@@ -82,7 +82,7 @@ export default function Projects({ strings }) {
                   </div>
                 </div>
                 <p style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: ".72rem", color: "var(--mut)", textAlign: "right" }}>
-                  {strings?.projects?.soonText ?? "Bientôt disponible"}
+                  {strings?.projects?.soonText ?? "Available soon"}
                 </p>
               </div>
             );

@@ -43,7 +43,7 @@ export default function Parcours({ strings, experiences }) {
               color: "var(--mut)",
             }}
           >
-            {strings?.parcours?.description ?? "Formation, stages et premiers projets à l'intersection du digital, de la finance et de la data."}
+            {strings?.parcours?.description ?? "Education, internships and first projects at the intersection of digital, finance and data."}
           </p>
         </div>
 

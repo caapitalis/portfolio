@@ -12,7 +12,7 @@ export default function Newsletter({ strings }) {
   return (
     <section id="newsletter" style={{ padding: "80px 64px 110px", position: "relative", zIndex: 1 }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <div className="section-panel" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "center" }}>
+        <div className="section-panel newsletter-panel">
           <div className="srl">
             <p
               style={{
@@ -25,7 +25,7 @@ export default function Newsletter({ strings }) {
                 marginBottom: 20,
               }}
             >
-              {strings?.newsletter?.section ?? "04 — Newsletter"}
+              {strings?.newsletter?.section ?? "05 — Newsletter"}
             </p>
             <h2
               style={{
@@ -50,7 +50,7 @@ export default function Newsletter({ strings }) {
                 marginBottom: 36,
               }}
             >
-              {strings?.newsletter?.description ?? "Articles, veille tech, data, IA et web3. Une publication régulière, sans spam — seulement ce qui vaut votre temps."}
+              {strings?.newsletter?.description ?? "Articles, tech watch, data, AI and Web3. Regular updates without spam — only what deserves your time."}
             </p>
             {(strings?.newsletter?.topics ?? []).map((t) => (
               <div key={t} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 13 }}>
@@ -78,9 +78,9 @@ export default function Newsletter({ strings }) {
                   >
                     <span style={{ fontFamily: "var(--serif)", fontSize: "1.5rem", color: "var(--acc)" }}>✓</span>
                   </div>
-                  <h3 style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "2.2rem", marginBottom: 14 }}>{strings?.newsletter?.thanksTitle ?? "Bienvenue."}</h3>
+                  <h3 style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: "2.2rem", marginBottom: 14 }}>{strings?.newsletter?.thanksTitle ?? "Welcome."}</h3>
                   <p style={{ fontFamily: "var(--sans)", fontSize: ".76rem", fontWeight: 300, color: "var(--mut)", lineHeight: 1.9 }}>
-                    {strings?.newsletter?.thanksText ?? "Vous êtes désormais dans la liste. À très vite."}
+                    {strings?.newsletter?.thanksText ?? "You're now on the list. See you soon."}
                   </p>
                 </div>
               ) : (
@@ -96,13 +96,13 @@ export default function Newsletter({ strings }) {
                       marginBottom: 32,
                     }}
                   >
-                    {strings?.newsletter?.cta ?? "Rejoindre la newsletter"}
+                    {strings?.newsletter?.cta ?? "Join the newsletter"}
                   </p>
                   <div className="nw">
                     <input
                       className="ni"
                       type="text"
-                      placeholder={strings?.newsletter?.namePlaceholder ?? "Votre prénom"}
+                      placeholder={strings?.newsletter?.namePlaceholder ?? "Your first name"}
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
@@ -111,13 +111,13 @@ export default function Newsletter({ strings }) {
                     <input
                       className="ni"
                       type="email"
-                      placeholder={strings?.newsletter?.emailPlaceholder ?? "Votre adresse email"}
+                      placeholder={strings?.newsletter?.emailPlaceholder ?? "Your email address"}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <button className="bp" style={{ width: "100%", borderRadius: 14, padding: 16, marginTop: 6 }} onClick={handleSubscribe}>
-                    {strings?.newsletter?.subscribe ?? "S'abonner"}
+                    {strings?.newsletter?.subscribe ?? "Subscribe"}
                   </button>
                   <p
                     style={{
@@ -130,7 +130,7 @@ export default function Newsletter({ strings }) {
                       lineHeight: 1.8,
                     }}
                   >
-                    {strings?.newsletter?.privacy ?? "Aucun spam. Désabonnement en un clic."}
+                    {strings?.newsletter?.privacy ?? "No spam. Unsubscribe with one click."}
                   </p>
                 </>
               )}

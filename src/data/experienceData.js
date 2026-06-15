@@ -6,14 +6,24 @@ export const EXPERIENCE_PAGES = [
     company: "Heppner",
     location: "Rosny-sous-Bois, France",
     period: "23 juin — 29 juillet 2026",
+    periodEn: "23 June — 29 July 2026",
     hero: "Immersion DSI en transport & logistique, missions Data, MyPortal, Sécurité, Infra et EDI.",
+    heroEn: "IT department immersion in transport & logistics, working on Data, MyPortal, Security, Infrastructure and EDI.",
     preview: "Stage DSI de 5 semaines au sein de la DSI Groupe Heppner, avec une mission transverse autour de la qualité des données et des processus utilisateurs.",
+    previewEn: "5-week IT internship at Heppner Group IT, with a cross-functional mission focused on data quality and user process improvement.",
     actions: [
       "Onboarding DSI : découverte des équipes, des outils internes et des workflows Data / MyPortal / Infra / Sécurité / EDI.",
       "Analyse de dataset et production d’un rapport Data Quality avec visualisations et constats d’amélioration.",
       "Proposition d’amélioration ou mini-FAQ MyPortal sur un flux de demande fréquent.",
       "Création d’un support pédagogique pour la sensibilisation à la cybersécurité, à l’EDI ou à l’infrastructure.",
       "Livrable final transversal : cartographie, synthèse ou guide utilisable par la DSI.",
+    ],
+    actionsEn: [
+      "IT onboarding: discovery of teams, internal tools, and data/MyPortal/Infra/Security/EDI workflows.",
+      "Dataset analysis and delivery of a Data Quality report with visualizations and improvement findings.",
+      "MyPortal improvement proposal or mini-FAQ for a frequent request flow.",
+      "Creation of a learning asset for cybersecurity, EDI or infrastructure awareness.",
+      "Final cross-functional deliverable: mapping, synthesis or guide usable by the IT department.",
     ],
     learnings: [
       "Compréhension du fonctionnement d’une DSI Groupe dans un environnement logistique et transport.",
@@ -22,10 +32,22 @@ export const EXPERIENCE_PAGES = [
       "Culture sécurité et bonnes pratiques autour de la sensibilisation interne.",
       "Découverte des flux EDI et de l’infrastructure de supervision.",
     ],
+    learningsEn: [
+      "Understanding Group IT operations in a logistics and transport environment.",
+      "Data Quality methodology applied to a real dataset with visualized findings.",
+      "User-centered approach and response to frequent MyPortal requests.",
+      "Security culture and best practices for internal awareness.",
+      "Discovery of EDI flows and monitoring infrastructure.",
+    ],
     evolution: [
       "Passage d’une découverte sectorielle à des livrables immédiatement exploitables par la DSI.",
       "Renforcement de l’autonomie dans la production de documents techniques et pédagogiques.",
       "Capacité à travailler en transverse avec plusieurs pôles IT sur un projet unique.",
+    ],
+    evolutionEn: [
+      "Shifted from sector discovery to deliverables instantly usable by the IT department.",
+      "Strengthened autonomy in producing technical and learning documentation.",
+      "Capability to work across IT teams on a single project.",
     ],
   },
   {
@@ -35,21 +57,38 @@ export const EXPERIENCE_PAGES = [
     company: "Ingetis CFA",
     location: "Paris 5ème, France",
     period: "2025 — 2027",
+    periodEn: "2025 — 2027",
     hero: "Formation technique orientée développement web, systèmes et projets métiers.",
+    heroEn: "Technical education focused on web development, systems and business applications.",
     preview: "Cycle BTSS SIO centré sur le développement d’applications, les services informatiques et les démarches projet.",
+    previewEn: "BTSS SIO program centered on application development, IT services and project methodologies.",
     actions: [
       "Conception de solutions applicatives métier en respectant les phases de cahier des charges, développement et test.",
       "Travail sur les technologies Web, bases de données, serveurs et sécurité des services.",
       "Participation à des projets en équipe, avec livrables documentés et démonstrations.",
+    ],
+    actionsEn: [
+      "Designed business application solutions through requirements, development and testing phases.",
+      "Worked with web technologies, databases, servers and service security.",
+      "Collaborated on team projects with documented deliverables and presentations.",
     ],
     learnings: [
       "Approche projet structurée : analyse des besoins, prototypage, tests et déploiement.",
       "Affinage des compétences fullstack et des bonnes pratiques de développement.",
       "Maîtrise des fondamentaux IT et des enjeux métiers associés.",
     ],
+    learningsEn: [
+      "Structured project approach: analysis, prototyping, testing and deployment.",
+      "Refined fullstack skills and development best practices.",
+      "Mastered IT fundamentals and associated business challenges.",
+    ],
     evolution: [
       "Consolidation du socle technique nécessaire pour des missions DSI et projets digitaux avancés.",
       "Capacité à livrer des solutions pragmatiques et orientées utilisateur.",
+    ],
+    evolutionEn: [
+      "Consolidated the technical foundation needed for IT projects and advanced digital initiatives.",
+      "Delivered pragmatic, user-focused solutions.",
     ],
   },
   {
@@ -59,21 +98,38 @@ export const EXPERIENCE_PAGES = [
     company: "Digital Campus Paris 11ème",
     location: "Paris, France",
     period: "2022",
+    periodEn: "2022",
     hero: "Coordination de projets digitaux et pilotage de développement web.",
+    heroEn: "Coordinated digital projects and led web development initiatives.",
     preview: "Expérience en gestion de projet et développement web, du cadrage au prototype, avec des livrables orientés business.",
+    previewEn: "Experience in project management and web development from planning to prototype, with business-focused deliverables.",
     actions: [
       "Gestion du cahier des charges et définition des objectifs produits.",
       "Suivi des équipes de développement et coordination des temps forts projet.",
       "Création de maquettes, prototypes et supports de présentation client.",
+    ],
+    actionsEn: [
+      "Managed project requirements and defined product objectives.",
+      "Monitored development teams and coordinated key project milestones.",
+      "Created mockups, prototypes and client presentation materials.",
     ],
     learnings: [
       "Organisation projet agile et communication avec les parties prenantes.",
       "Importance du cadrage et de l’expérience utilisateur dans les livrables web.",
       "Priorisation de fonctionnalités pour un prototype actionnable.",
     ],
+    learningsEn: [
+      "Agile project organization and stakeholder communication.",
+      "The importance of scoping and user experience in web deliverables.",
+      "Prioritizing features for an actionable prototype.",
+    ],
     evolution: [
       "Développement d’une posture produit plus affirmée et orientée résultats.",
       "Amélioration de la capacité à transformer une idée en solution digitale concrète.",
+    ],
+    evolutionEn: [
+      "Developed a stronger product mindset focused on results.",
+      "Improved ability to turn ideas into concrete digital solutions.",
     ],
   },
   {
@@ -83,21 +139,38 @@ export const EXPERIENCE_PAGES = [
     company: "Autodidacte",
     location: "France",
     period: "2017 — Aujourd’hui",
+    periodEn: "2017 — Today",
     hero: "Exploration continue de l’IA, du Web3 et des prototypes à valeur business.",
+    heroEn: "Continuous exploration of AI, Web3 and business-value prototypes.",
     preview: "Travail indépendant autour de prototypes, innovations IA/Web3 et montée en compétences régulière.",
+    previewEn: "Independent work on prototypes, AI/Web3 innovations and regular skills growth.",
     actions: [
       "Réalisation de prototypes alignés sur des besoins business ou métiers.",
       "Veille active sur l’intelligence artificielle, la data et le Web3.",
       "Expérimentation de nouvelles interfaces et services digitaux.",
+    ],
+    actionsEn: [
+      "Built prototypes aligned with business and product needs.",
+      "Conducted active monitoring of AI, data and Web3 trends.",
+      "Experimented with new digital interfaces and service flows.",
     ],
     learnings: [
       "Adaptation rapide aux technologies émergentes et aux nouveaux métiers numériques.",
       "Maîtrise de l’auto-apprentissage et du produit minimal viable.",
       "Construction d’une culture technique orientée résultats et valeur utilisateur.",
     ],
+    learningsEn: [
+      "Quickly adapted to emerging technologies and new digital roles.",
+      "Mastered self-directed learning and minimum viable product development.",
+      "Built a technical culture focused on results and user value.",
+    ],
     evolution: [
       "Création d’un socle d’autonomie fort pour des missions d’innovation digitale.",
       "Capacité à structurer des idées et à transformer des concepts en expériences.",
+    ],
+    evolutionEn: [
+      "Created a strong autonomy foundation for digital innovation missions.",
+      "Developed the ability to structure ideas and turn concepts into experiences.",
     ],
   },
 ];

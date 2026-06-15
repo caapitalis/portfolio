@@ -25,7 +25,7 @@ export default function Footer({ strings }) {
                 marginBottom: 20,
               }}
             >
-              {strings?.footer?.section ?? "05 — Contact"}
+              {strings?.footer?.section ?? "06 — Contact"}
             </p>
             <h2
               style={{
@@ -79,7 +79,7 @@ export default function Footer({ strings }) {
                 marginBottom: 4,
               }}
             >
-              {strings?.footer?.social ?? "Réseaux"}
+              {strings?.footer?.social ?? "Social"}
             </p>
             {SOCIAL_LINKS.map(([label, href]) => (
               <a key={label} href={href} className="sa" target="_blank" rel="noopener noreferrer">
@@ -96,7 +96,7 @@ export default function Footer({ strings }) {
             {strings?.footer?.copyright ?? "© 2025 Ali Ouadi — @caapitalis"}
           </p>
           <p style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: ".84rem", color: "var(--mut)" }}>
-            {strings?.footer?.signature ?? "Fait avec soin & ambition."}
+            {strings?.footer?.signature ?? "Made with care & ambition."}
           </p>
         </div>
       </div>

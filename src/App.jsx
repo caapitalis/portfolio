@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useScrollY } from "./hooks/useScrollY.js";
 import { useScrollReveal } from "./hooks/useScrollReveal.js";
 import Nav from "./components/layout/Nav.jsx";
 import HomePage from "./components/pages/HomePage.jsx";
 import ExperiencePage from "./components/pages/ExperiencePage.jsx";
+import Footer from "./components/sections/Footer.jsx";
 import LoadingOverlay from "./components/ui/LoadingOverlay.jsx";
 import { usePageLoading } from "./hooks/usePageLoading.js";
 import { TRANSLATIONS } from "./data/translations.js";
@@ -32,10 +33,26 @@ export default function App() {
   const [lang, setLang] = useState("fr");
   const [waiting, setWaiting] = useState(false);
   const [identityIndex, setIdentityIndex] = useState(0);
+  const location = useLocation();
+  const routeTimeout = useRef(null);
+  const hasMounted = useRef(false);
   const scrollY = useScrollY();
   const loading = usePageLoading();
   const strings = TRANSLATIONS[lang];
   const identity = identityProfiles[identityIndex];
+
+  const translatedExperiences = useMemo(() => {
+    if (lang === "fr") {
+      return EXPERIENCE_PAGES;
+    }
+
+    return EXPERIENCE_PAGES.map((item) => ({
+      ...item,
+      title: item.titleEn ?? item.title,
+      preview: item.previewEn ?? item.preview,
+      period: item.periodEn ?? item.period,
+    }));
+  }, [lang]);
 
   useScrollReveal();
 
@@ -69,15 +86,36 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
+
+    if (routeTimeout.current) {
+      clearTimeout(routeTimeout.current);
+    }
+
+    setWaiting(true);
+    routeTimeout.current = window.setTimeout(() => setWaiting(false), 550);
+
+    return () => {
+      if (routeTimeout.current) {
+        clearTimeout(routeTimeout.current);
+      }
+    };
+  }, [location.pathname]);
+
   return (
     <>
       <LoadingOverlay visible={loading || waiting} />
-      <Nav scrollY={scrollY} strings={strings} identity={identity} lang={lang} setLang={setLang} experiences={EXPERIENCE_PAGES} />
+      <Nav scrollY={scrollY} strings={strings} identity={identity} lang={lang} setLang={setLang} experiences={translatedExperiences} />
       <Routes>
-        <Route path="/" element={<HomePage strings={strings} identity={identity} experiences={EXPERIENCE_PAGES} scrollY={scrollY} />} />
+        <Route path="/" element={<HomePage strings={strings} identity={identity} experiences={translatedExperiences} scrollY={scrollY} />} />
         <Route path="/experience/:slug" element={<ExperiencePage lang={lang} strings={strings} />} />
-        <Route path="*" element={<HomePage strings={strings} identity={identity} experiences={EXPERIENCE_PAGES} scrollY={scrollY} />} />
+        <Route path="*" element={<HomePage strings={strings} identity={identity} experiences={translatedExperiences} scrollY={scrollY} />} />
       </Routes>
+      <Footer strings={strings} />
     </>
   );
 }

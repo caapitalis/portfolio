@@ -11,22 +11,10 @@ export default function Hero({ scrollY, strings, identity }) {
   };
 
   return (
-    <section
-      id="hero"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        padding: "0 64px",
-        position: "relative",
-        overflow: "hidden",
-        zIndex: 1,
-      }}
-    >
-      <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%", paddingTop: 96, position: "relative" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr minmax(300px, 380px)", gap: 34, alignItems: "start" }}>
-          <div>
+    <section id="hero" className="hero-root">
+      <div className="hero-inner">
+        <div className="hero-grid">
+          <div className="hero-copy">
             <div className="ha1" style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 42 }}>
               <div style={{ width: 22, height: 2.5, background: "var(--acc)", borderRadius: 2, opacity: 0.7 }} />
               <span
@@ -64,14 +52,14 @@ export default function Hero({ scrollY, strings, identity }) {
               </div>
             </div>
 
-            <div className="hero-favicons" style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "flex-start", margin: "18px 0 14px 0", maxWidth: 520, width: "fit-content" }}>
+            <div className="hero-favicons">
               <a href="https://github.com/caapitalis" target="_blank" rel="noreferrer">GitHub</a>
               <a href="https://x.com/caapitalis" target="_blank" rel="noreferrer">X</a>
               <a href="https://www.linkedin.com/in/ali-ouadi-314a3b3a4/" target="_blank" rel="noreferrer">LinkedIn</a>
             </div>
 
-            <div className="hax" style={{ margin: "14px 0 22px" }}>
-              <div style={{ height: 2.5, width: "18%", background: "var(--acc)", borderRadius: 2, opacity: 0.42 }} />
+            <div className="hero-divider">
+              <div />
             </div>
 
             <div className="neo glass" style={{ padding: 24, borderRadius: 28, maxWidth: 520, marginBottom: 24 }}>
@@ -86,7 +74,7 @@ export default function Hero({ scrollY, strings, identity }) {
                   marginBottom: 20,
                 }}
               >
-                {strings?.hero?.subtitle ?? "Je bâtis des produits digitaux orientés business pour des startups et PME, avec une approche data-driven, IA et Web3."}
+                {strings?.hero?.subtitle ?? "I build digital products oriented toward business & finance with a data-driven, AI, web3 approach."}
               </p>
 
               <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
@@ -122,19 +110,19 @@ export default function Hero({ scrollY, strings, identity }) {
                   lineHeight: 2,
                 }}
               >
-                {strings?.hero?.details1 ?? "Étudiant BTS SIO · Paris, France."}
+                {strings?.hero?.details1 ?? "BTSS SIO 2025-2027 student at Ingetis CFA Paris 5th, France."}
                 <br />
-                {strings?.hero?.details2 ?? "Passionné par la donnée, l'IA et le Web3."}
+                {strings?.hero?.details2 ?? "Passionate about data, AI and Web3."}
               </p>
             </div>
 
-            <div className="ha5" style={{ display: "flex", gap: 22, alignItems: "center", marginTop: 40, flexWrap: "wrap" }}>
-              <button className="bp" onClick={() => scrollToSection("projects")}>{strings?.hero?.viewProjects ?? "Voir les projets"}</button>
+            <div className="hero-actions">
+              <button className="bp" onClick={() => scrollToSection("projects")}>{strings?.hero?.viewProjects ?? "View projects"}</button>
               <button className="bg2" onClick={() => scrollToSection("newsletter")}>{strings?.hero?.newsletter ?? "Newsletter"} <em style={{ fontFamily: "var(--serif)", fontSize: "1.1rem" }}>→</em></button>
             </div>
           </div>
 
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div className="hero-media-wrapper">
             <div key={activeImage.title} className="hero-photo neo glass identity-fade" style={{ width: "100%", aspectRatio: "1 / 1", overflow: "hidden", position: "relative", border: "1px solid rgba(255,255,255,.9)" }}>
               <img
                 className="hero-image"
@@ -150,17 +138,7 @@ export default function Hero({ scrollY, strings, identity }) {
           </div>
         </div>
 
-        <div
-          style={{
-            position: "absolute",
-            bottom: -48,
-            left: 0,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 8,
-          }}
-        >
+        <div className="hero-scroll-indicator">
           <span
             style={{
               fontFamily: "var(--sans)",
