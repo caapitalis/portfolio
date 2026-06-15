@@ -1,0 +1,190 @@
+import { useEffect, useState } from "react";
+import { scrollToSection } from "../../utils/scrollTo.js";
+
+export default function Hero({ scrollY, strings, identity }) {
+  const bullets = strings?.hero?.bullets ?? ["Produit", "Impact", "Agilité", "Valeur"];
+  const activeImage = identity ?? {
+    title: strings?.hero?.title ?? "@caapitalis",
+    badge: strings?.hero?.badge ?? "Entrepreneur · Tech",
+    image: "/ali-pro.jpg",
+    alt: "Ali Ouadi",
+  };
+
+  return (
+    <section
+      id="hero"
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "0 64px",
+        position: "relative",
+        overflow: "hidden",
+        zIndex: 1,
+      }}
+    >
+      <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%", paddingTop: 96, position: "relative" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr minmax(300px, 380px)", gap: 34, alignItems: "start" }}>
+          <div>
+            <div className="ha1" style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 42 }}>
+              <div style={{ width: 22, height: 2.5, background: "var(--acc)", borderRadius: 2, opacity: 0.7 }} />
+              <span
+                style={{
+                  fontFamily: "var(--sans)",
+                  fontSize: ".56rem",
+                  fontWeight: 600,
+                  letterSpacing: ".3em",
+                  textTransform: "uppercase",
+                  color: "var(--acc)",
+                }}
+              >
+                {strings?.hero?.tagline ?? "Portfolio · 2025"}
+              </span>
+            </div>
+
+            <div style={{ transform: `translateY(${scrollY * -0.1}px)`, willChange: "transform" }}>
+              <div className="ha2">
+                <h1
+                  key={activeImage.title}
+                  className="identity-fade"
+                  style={{
+                    fontFamily: "var(--serif)",
+                    fontSize: "clamp(3.8rem, 8vw, 6.6rem)",
+                    fontWeight: 400,
+                    lineHeight: 0.92,
+                    letterSpacing: "-.03em",
+                    color: "var(--text)",
+                    maxWidth: 760,
+                    transition: "color .35s ease",
+                  }}
+                >
+                  {activeImage.title}
+                </h1>
+              </div>
+            </div>
+
+            <div className="hero-favicons" style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "flex-start", margin: "18px 0 14px 0", maxWidth: 520, width: "fit-content" }}>
+              <a href="https://github.com/caapitalis" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://x.com/caapitalis" target="_blank" rel="noreferrer">X</a>
+              <a href="https://www.linkedin.com/in/ali-ouadi-314a3b3a4/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+
+            <div className="hax" style={{ margin: "14px 0 22px" }}>
+              <div style={{ height: 2.5, width: "18%", background: "var(--acc)", borderRadius: 2, opacity: 0.42 }} />
+            </div>
+
+            <div className="neo glass" style={{ padding: 24, borderRadius: 28, maxWidth: 520, marginBottom: 24 }}>
+              <p
+                style={{
+                  fontFamily: "var(--sans)",
+                  fontSize: ".95rem",
+                  fontWeight: 400,
+                  letterSpacing: ".02em",
+                  color: "var(--text)",
+                  lineHeight: 1.8,
+                  marginBottom: 20,
+                }}
+              >
+                {strings?.hero?.subtitle ?? "Je bâtis des produits digitaux orientés business pour des startups et PME, avec une approche data-driven, IA et Web3."}
+              </p>
+
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+                {bullets.map((item) => (
+                  <span
+                    key={item}
+                    className="neo-p"
+                    style={{
+                      fontFamily: "var(--sans)",
+                      fontSize: ".68rem",
+                      fontWeight: 700,
+                      letterSpacing: ".14em",
+                      textTransform: "uppercase",
+                      color: "var(--mut)",
+                      padding: "10px 16px",
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="ha4">
+              <p
+                style={{
+                  fontFamily: "var(--sans)",
+                  fontSize: ".82rem",
+                  fontWeight: 300,
+                  letterSpacing: ".03em",
+                  color: "var(--mut)",
+                  maxWidth: 420,
+                  lineHeight: 2,
+                }}
+              >
+                {strings?.hero?.details1 ?? "Étudiant BTS SIO · Paris, France."}
+                <br />
+                {strings?.hero?.details2 ?? "Passionné par la donnée, l'IA et le Web3."}
+              </p>
+            </div>
+
+            <div className="ha5" style={{ display: "flex", gap: 22, alignItems: "center", marginTop: 40, flexWrap: "wrap" }}>
+              <button className="bp" onClick={() => scrollToSection("projects")}>{strings?.hero?.viewProjects ?? "Voir les projets"}</button>
+              <button className="bg2" onClick={() => scrollToSection("newsletter")}>{strings?.hero?.newsletter ?? "Newsletter"} <em style={{ fontFamily: "var(--serif)", fontSize: "1.1rem" }}>→</em></button>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <div key={activeImage.title} className="hero-photo neo glass identity-fade" style={{ width: "100%", aspectRatio: "1 / 1", overflow: "hidden", position: "relative", border: "1px solid rgba(255,255,255,.9)" }}>
+              <img
+                className="hero-image"
+                src={activeImage.image}
+                alt={activeImage.alt}
+                loading="eager"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+              <div className="hero-badge identity-fade" style={{ animationDelay: "0.1s" }}>
+                <span>{activeImage.badge}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            position: "absolute",
+            bottom: -48,
+            left: 0,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 8,
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "var(--sans)",
+              fontSize: ".48rem",
+              fontWeight: 500,
+              letterSpacing: ".2em",
+              textTransform: "uppercase",
+              color: "var(--mut)",
+              opacity: 0.7,
+            }}
+          >
+            {strings?.hero?.scroll ?? "Scroll"}
+          </span>
+          <div
+            style={{
+              width: 1,
+              height: 48,
+              background: "linear-gradient(to bottom, var(--acc), transparent)",
+              opacity: 0.5,
+              animation: "glow 2.5s ease-in-out infinite",
+            }}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
